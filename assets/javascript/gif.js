@@ -43,13 +43,15 @@ $(document).ready(function () {
 
         }
         };
-        $("#gifsearch").on("click", function (event) {
+        $("#submitnew").on("click", function (event) {
             event.preventDefault();
-            var movieName = $("#gifserach").val().trim();
+            var movieName = $("#gifsearch").val();
             currentButtons.push(movieName);
             loadButtons();
+            console.log(currentButtons)
     });
-    
+    loadButtons();
+
     $(document).on("click", ".buttonsubmit", function () {
         var movieName = $(this).attr("data-name");
         var queryURL = "https://api.giphy.com/v1/gifs/search?q=" +
@@ -79,11 +81,10 @@ $(document).ready(function () {
         });
         // Create new button
 
-        $(document).on("click", ".movie-btn", displayMovieInfo);
+        // $(document).on("click", ".movie-btn", displayMovieInfo);
 
     });
     //
-    loadButtons();
 });
 //go through array of strings
 // var queryURL = "https://api.giphy.com/v1/gifs/search?q=" +
